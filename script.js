@@ -19,18 +19,13 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
   btnsOpenModal[i].addEventListener('click', openModal);
 }
 
-//Using function instead of repeating code
-
-// btnCloseModal.addEventListener('click', function () {
-//     modal.classList.add('hidden');
-//     overlay.classList.add('hidden');
-//   });
-
 btnCloseModal.addEventListener('click', closeModal);
 
-// overlay.addEventListener('click', function () {
-//   modal.classList.add('hidden');
-//   overlay.classList.add('hidden');
-// });
-
 overlay.addEventListener('click', closeModal);
+
+//global event we listen to the whole document
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
